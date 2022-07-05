@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+{% block nav %}
+    <nav class="navbar navbar-expand-lg bg-secondary py-2 px-2">
+      <div class="container-fluid">
+        <a class="navbar-brand primary" href="#">Blog</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">New Blog</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <button class="btn btn-outline-primary mx-3">Log In</button>
+            <button class="btn btn-outline-info">Register</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+  <h1>Alo</h1>
+
+{% endblock %}
