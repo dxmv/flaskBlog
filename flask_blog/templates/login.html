@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+
+{% macro render_field(field) %}
+  <div class="mb-3">
+    <label class="form-label">{{ field.label }}</label>
+    {{ field(class="form-control") }}
+  </div>
+  {% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+
+{% block body %}
+  <main class="container-xl">
+    <p class="h4 mb-3">Login</p>
+    <form method="POST" class="my-4">
+      {{ form.hidden_tag() }}
+      {{ render_field(form.username) }}
+      {{ render_field(form.password) }}
+      <button class="btn btn-primary">Login</button>
+      <a class="btn btn-danger mx-3" href="/">Cancel</a>
+    </form>
+    <hr>
+    <p>Don't have an account? <a class="link" href="/register">Sign up here</a></p>
+  </main>
+{% endblock %}

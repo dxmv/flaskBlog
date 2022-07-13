@@ -1,26 +1,26 @@
 {% extends "template.html" %}
-{% block nav %}
-    <nav class="navbar navbar-expand-lg bg-secondary py-2 px-2">
-      <div class="container-fluid">
-        <a class="navbar-brand primary" href="#">Blog</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">New Blog</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <button class="btn btn-outline-primary mx-3">Log In</button>
-            <button class="btn btn-outline-info">Register</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-{% endblock %}
 
 {% block body %}
-  <h1>{{id}}</h1>
+  <main class="container-xl">
+      <div class="d-flex justify-content-between align-items-center">
+        <p class="h3">{{post.title}}</p>
+        {% if g.user.id==post.user.id %}
+        <div class="d-flex justify-space-between">
+            <a class="btn btn-primary mx-3" href="/edit_blog/{{post.id}}">Edit</a>
+            <a class="btn btn-danger" href="/delete/{{post.id}}">Delete</a>
+        </div>
+        {% endif %}
+      </div>
+      <div class="rounded shadow p-3 my-4">
+        <p class="lead">{{post.text}}</p>
+        <hr>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex">
+            <img src="/static/images/{{post.user.picture}}" id="navBarImage" class="mx-2"/>
+            <a class="link text-info" href="/profile/{{post.user.id}}">{{post.user.username}}</a>
+          </div>
+          <p class="text-primary">{{post.date}}</p>
+        </div>
+      </div>
+  </main>
 {% endblock %}

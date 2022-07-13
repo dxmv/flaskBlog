@@ -1,0 +1,34 @@
+{% extends "template.html" %}
+
+
+{% block body %}
+    <main class="container-xxl ">
+      <div id="profileInfo">
+        <div id="profileImage" >
+            <img src="/static/images/{{user.picture}}" class="img-thumbnail shadow" style="width:100px;height:100px;" />
+            <a id="editPicture" class="shadow" href="/edit_picture/{{user.id}}"><i class="fa-solid fa-pen-to-square"></i></a>
+        </div>
+        <div>
+          <p class="h3 my-2">{{user.username}}</p>
+          <p class="my-2 lead">Email: {{user.email}}</p>
+          <p class="my-2 lead">Number of blogs: {{user.blogs.__len__()}}</p>
+          <a class="btn btn-primary mt-2" href="/edit_user/{{user.id}}">Edit</a>
+        </div>
+      </div>
+      <hr>
+      <div id="blogs">
+        {% for post in user.blogs %}
+        <div class="shadow p-3 mb-3 bg-body rounded" id="blog" onclick="handleBlogClick">
+          <div class="d-flex flex-row justify-content-between align-items-center">
+            <p class="h5">{{post.title}}</p>
+            <p class="lead text-primary">{{post.date}}</p>
+          </div>
+          <div>
+            {{post.text }}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </main>
+
+{% endblock %}

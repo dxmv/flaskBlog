@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+
+{% macro render_field(field) %}
+  <div class="mb-3">
+    <label class="form-label">{{ field.label }}</label>
+    {{ field(class="form-control") }}
+  </div>
+  {% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+{% block body %}
+  <main class="container-xl">
+    <p class="h4">Create a new blog</p>
+    <form method="POST" class="mt-4 shadow p-3 rounded">
+      {{ form.hidden_tag() }}
+      {{ render_field(form.title) }}
+      {{ render_field(form.text) }}
+      <button class="btn btn-primary">Create</button>
+    </form>
+  </main>
+{% endblock %}
+

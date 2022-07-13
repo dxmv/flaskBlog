@@ -1,0 +1,44 @@
+#blog{
+    cursor:pointer;
+    transition:250ms;
+}
+
+#blog:hover{
+    transform:scale(1.005);
+    transition:250ms;
+}
+
+#navBarImage{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:2px solid white;
+}
+
+#dropdownMenuButton{
+    display:flex;
+    align-items:center;
+}
+
+#profileInfo{
+    text-align:center;
+}
+
+#profileImage{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+}
+
+#editPicture{
+    position:absolute;
+    bottom:-5%;
+    right:45%;
+    background-color:white;
+    border:1px solid black;
+    height:30px;
+    width:30px;
+    border-radius:50%;
+}
